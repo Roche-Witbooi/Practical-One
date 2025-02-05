@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "q1.html",
+    "href": "q1.html",
+    "title": "Question 1",
+    "section": "",
+    "text": "Find all rows in “airquality” data set that have missing values.\nCode\n\nrows_missing_val &lt;-airquality[rowSums(is.na(airquality)) &gt; 0, ]\n\nAnswer\n\n\n    Ozone Solar.R Wind Temp Month Day\n5      NA      NA 14.3   56     5   5\n6      28      NA 14.9   66     5   6\n10     NA     194  8.6   69     5  10\n11      7      NA  6.9   74     5  11\n25     NA      66 16.6   57     5  25\n26     NA     266 14.9   58     5  26\n27     NA      NA  8.0   57     5  27\n32     NA     286  8.6   78     6   1\n33     NA     287  9.7   74     6   2\n34     NA     242 16.1   67     6   3\n35     NA     186  9.2   84     6   4\n36     NA     220  8.6   85     6   5\n37     NA     264 14.3   79     6   6\n39     NA     273  6.9   87     6   8\n42     NA     259 10.9   93     6  11\n43     NA     250  9.2   92     6  12\n45     NA     332 13.8   80     6  14\n46     NA     322 11.5   79     6  15\n52     NA     150  6.3   77     6  21\n53     NA      59  1.7   76     6  22\n54     NA      91  4.6   76     6  23\n55     NA     250  6.3   76     6  24\n56     NA     135  8.0   75     6  25\n57     NA     127  8.0   78     6  26\n58     NA      47 10.3   73     6  27\n59     NA      98 11.5   80     6  28\n60     NA      31 14.9   77     6  29\n61     NA     138  8.0   83     6  30\n65     NA     101 10.9   84     7   4\n72     NA     139  8.6   82     7  11\n75     NA     291 14.9   91     7  14\n83     NA     258  9.7   81     7  22\n84     NA     295 11.5   82     7  23\n96     78      NA  6.9   86     8   4\n97     35      NA  7.4   85     8   5\n98     66      NA  4.6   87     8   6\n102    NA     222  8.6   92     8  10\n103    NA     137 11.5   86     8  11\n107    NA      64 11.5   79     8  15\n115    NA     255 12.6   75     8  23\n119    NA     153  5.7   88     8  27\n150    NA     145 13.2   77     9  27",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Question 1</span>"
+    ]
+  },
+  {
+    "objectID": "q2.html",
+    "href": "q2.html",
+    "title": "Question 2",
+    "section": "",
+    "text": "Mean\nCode\nmean_temp &lt;- mean(valid_rows$Temp)\nmean_ozone &lt;- mean(valid_rows$Ozone)\nAnswer: Mean Temperature:\n[1] 77.79279\nAnswer: Mean Ozone Level:\n[1] 42.0991",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Question 2</span>"
+    ]
+  },
+  {
+    "objectID": "q2.html#standard-deviation",
+    "href": "q2.html#standard-deviation",
+    "title": "Question 2",
+    "section": "Standard Deviation",
+    "text": "Standard Deviation\nCode\n\nsd_temp &lt;- sd(valid_rows$Temp)\nsd_ozone &lt;- sd(valid_rows$Ozone)\n\nAnswer: Standard Deviation of Temperature:\n\n\n[1] 9.529969\n\n\nAnswer: Standard Deviation of Ozone Level:\n\n\n[1] 33.27597",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Question 2</span>"
+    ]
+  },
+  {
+    "objectID": "q2.html#minimum",
+    "href": "q2.html#minimum",
+    "title": "Question 2",
+    "section": "Minimum",
+    "text": "Minimum\nCode\n\nmin_temp &lt;- min(valid_rows$Temp) \nmin_ozone &lt;- min(valid_rows$Ozone)\n\nAnswer: Minimuim Temperature:\n\n\n[1] 57\n\n\nAnswer: Minimuim Ozone Level:\n\n\n[1] 1",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Question 2</span>"
+    ]
+  },
+  {
+    "objectID": "q2.html#maximum",
+    "href": "q2.html#maximum",
+    "title": "Question 2",
+    "section": "Maximum",
+    "text": "Maximum\nCode\n\nmax_temp &lt;- max(valid_rows$Temp) \nmax_ozone &lt;- max(valid_rows$Ozone)\n\nAnswer: Maximuim Temperature:\n\n\n[1] 97\n\n\nAnswer: Maximuim Ozone Level:\n\n\n[1] 168",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Question 2</span>"
+    ]
+  },
+  {
+    "objectID": "q3.html",
+    "href": "q3.html",
+    "title": "Question 3",
+    "section": "",
+    "text": "Calculate Beta estimate\nHere, Y is the response variable, and X is the design matrix. The cars data (an R data set, also always available in R) contains two variables: speed and distance to stop. Fit a simple linear regression model to these data, i.e. find the beta estimates, using the equation above, and matrix calculations in R.\nCode\n####### Create design matrix ####### \nY &lt;-cars$dist\n\nintercept&lt;- rep(1,50)\nX &lt;- cbind(intercept,cars$speed)\n\n####### Calculation ####### \nbeta_hat &lt;- solve(t(X) %*% X) %*% t(X)%*% Y\nAnswer Beta estimate\n[1] -17.57909",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Question 3</span>"
+    ]
+  },
+  {
+    "objectID": "q4.html",
+    "href": "q4.html",
+    "title": "Question 4",
+    "section": "",
+    "text": "Confirm Beta estimate by fitting model\nCheck the same β estimates as when fitting the linear regression model using lm() in R.\nCode\n####### Create design matrix ####### \nY &lt;-cars$dist\n\nintercept&lt;- rep(1,50)\n\nX &lt;- cbind(intercept,cars$speed)\n\n####### Fit Model ####### \nmodel &lt;- lm(Y ~ cars$speed , data = cars)\nAnswer\nCall:\nlm(formula = Y ~ cars$speed, data = cars)\n\nCoefficients:\n(Intercept)   cars$speed  \n    -17.579        3.932",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Question 4</span>"
+    ]
+  }
+]

@@ -1,6 +1,5 @@
 ---
 title: "Question 4"
-format: html
 ---
 
 ## Confirm Beta estimate by fitting model

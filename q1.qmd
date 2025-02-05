@@ -1,8 +1,6 @@
 ---
 title: "Question 1"
-format: html
 ---
-
 Find all rows in **"airquality"** data set that have missing values.
 
 **Code**

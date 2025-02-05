@@ -1,23 +1,21 @@
 project:
   type: book
-  title: Practical One
   output-dir: _output
 
-      
 book:
+  title: "Practical One"
   chapters:
-  - index.qmd
-  - q1.qmd
-  - q2.qmd
-  - q3.qmd
-  - q4.qmd
-  
+    - index.qmd
+    - q1.qmd
+    - q2.qmd
+    - q3.qmd
+    - q4.qmd
+  navbar: false
+
 format:
-  pdf:
-    documentclass: book
-    include-in-header: |
-      \interlinepenalty=100
-      \widowpenalty=10000
-      \clubpenalty=10000
-    
-   
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: false
+    code-fold: false
+    html-math-method: katex

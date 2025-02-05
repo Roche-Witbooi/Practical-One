@@ -1,6 +1,5 @@
 ---
 title: "Question 2"
-format: html
 ---
 
 Find mean, standard deviation, minimum, maximum for each of temperature and ozone level.
