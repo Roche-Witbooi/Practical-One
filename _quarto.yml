@@ -1,5 +1,23 @@
 project:
-  title: "Practical One"
+  type: book
+  title: Practical One
+  output-dir: _output
 
-editor: visual
-
+      
+book:
+  chapters:
+  - index.qmd
+  - q1.qmd
+  - q2.qmd
+  - q3.qmd
+  - q4.qmd
+  
+format:
+  pdf:
+    documentclass: book
+    include-in-header: |
+      \interlinepenalty=100
+      \widowpenalty=10000
+      \clubpenalty=10000
+    
+   

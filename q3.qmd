@@ -1,0 +1,28 @@
+---
+title: "Question 3"
+format: html
+---
+
+## Calculate Beta estimate
+
+Here, Y is the response variable, and X is the design matrix. The cars data (an R data set, also always available in R) contains two variables: speed and distance to stop. Fit a simple linear regression model to these data, i.e. find the beta estimates, using the equation above, and matrix calculations in R.
+
+**Code**
+
+```{r}
+####### Create design matrix ####### 
+Y <-cars$dist
+
+intercept<- rep(1,50)
+X <- cbind(intercept,cars$speed)
+
+####### Calculation ####### 
+beta_hat <- solve(t(X) %*% X) %*% t(X)%*% Y
+```
+
+**Answer Beta estimate**
+
+```{r}
+#| echo: false
+beta_hat[1]
+```

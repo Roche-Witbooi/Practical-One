@@ -1,0 +1,29 @@
+---
+title: "Question 4"
+format: html
+---
+
+## Confirm Beta estimate by fitting model
+
+Check the same β estimates as when fitting the linear regression model using lm() in R.
+
+**Code**
+
+```{r}
+####### Create design matrix ####### 
+Y <-cars$dist
+
+intercept<- rep(1,50)
+
+X <- cbind(intercept,cars$speed)
+
+####### Fit Model ####### 
+model <- lm(Y ~ cars$speed , data = cars)
+```
+
+**Answer**
+
+```{r}
+#| echo: false
+model
+```

@@ -1,0 +1,19 @@
+---
+title: "Question 1"
+format: html
+---
+
+Find all rows in **"airquality"** data set that have missing values.
+
+**Code**
+
+```{r}
+rows_missing_val <-airquality[rowSums(is.na(airquality)) > 0, ]
+```
+
+**Answer**
+
+```{r}
+#| echo: false
+rows_missing_val
+```
