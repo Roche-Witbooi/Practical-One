@@ -1,5 +1,15 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Practical One",
+    "section": "",
+    "text": "This Quarto project (the rendered document itself, as well as the source code on GitHub)",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Practical One</span>"
+    ]
+  },
+  {
     "objectID": "q1.html",
     "href": "q1.html",
     "title": "Question 1",

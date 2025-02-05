@@ -1,4 +1,6 @@
 ---
-title: ""
+title: "Practical One"
 include: false
 ---
+
+This Quarto project (the rendered document itself, as well as the source code on GitHub) 
