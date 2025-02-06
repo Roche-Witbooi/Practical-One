@@ -11,16 +11,12 @@ Here, Y is the response variable, and X is the design matrix. The cars data (an 
 ```{r}
 ####### Create design matrix ####### 
 Y <-cars$dist
-
 intercept<- rep(1, length(Y))
-intercept
-
 X <- cbind(intercept,cars$speed)
 
 #######  Function Calculates Beta hat and Std Error ####### 
 
 calculate <- function(X, Y){
-  
   
   beta_hat <- solve(t(X) %*% X) %*% t(X)%*% Y
   
@@ -35,7 +31,7 @@ calculate <- function(X, Y){
   se_intercept<- rse*sqrt(1/length(Y)+mean(X[,2])^2/Sxx)
   se_speed <- rse/ sqrt( Sxx)
   
-  # Calculate Std Errors
+  # Display Std Errors
   std_error <- matrix(0, 2, 1) 
   std_error[1,1] <- se_intercept
   std_error[2,1] <- se_speed
@@ -45,6 +41,7 @@ calculate <- function(X, Y){
 }
 
 
+#######  Results ####### 
 answer <-calculate(X,Y)
 
 

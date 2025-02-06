@@ -205,38 +205,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Check the same β estimates as when fitting the linear regression model using lm() in R.</p>
 <p><strong>Code</strong></p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-[39] 1 1 1 1 1 1 1 1 1 1 1 1</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">####### Calculate Beat values and Standard Error ####### </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>answer <span class="ot">&lt;-</span> <span class="fu">calculate</span>(X, Y)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">####### Fit Model ####### </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print coefficients</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(answer<span class="sc">$</span>coefficients)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">####### Calculate Beat values and Standard Error ####### </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>answer <span class="ot">&lt;-</span> <span class="fu">calculate</span>(X, Y)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">####### Fit Model ####### </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print coefficients</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(answer<span class="sc">$</span>coefficients)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -17.579095   3.932409</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model<span class="sc">$</span>coefficients) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model<span class="sc">$</span>coefficients) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept)       speed 
  -17.579095    3.932409 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Corrected comparison</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>message_1 <span class="ot">&lt;-</span><span class="fu">ifelse</span> (<span class="fu">all</span>(<span class="fu">round</span>(answer<span class="sc">$</span>coefficients,<span class="dv">4</span>) <span class="sc">==</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">round</span>(model<span class="sc">$</span>coefficients,<span class="dv">4</span>)),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The coefficients are the same!"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                        ,<span class="st">"The coefficients differ."</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>message_2 <span class="ot">&lt;-</span><span class="fu">ifelse</span> (<span class="fu">all</span>(<span class="fu">round</span>(answer<span class="sc">$</span><span class="st">`</span><span class="at">std error</span><span class="st">`</span>,<span class="dv">4</span>) <span class="sc">==</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">round</span>(<span class="fu">summary</span>(model)<span class="sc">$</span>coefficients[, <span class="st">"Std. Error"</span>],<span class="dv">4</span>)),</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The standard errors are the same!"</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The tandard errors differ."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Corrected comparison</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>message_1 <span class="ot">&lt;-</span><span class="fu">ifelse</span> (<span class="fu">all</span>(<span class="fu">round</span>(answer<span class="sc">$</span>coefficients,<span class="dv">4</span>) <span class="sc">==</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">round</span>(model<span class="sc">$</span>coefficients,<span class="dv">4</span>)),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The coefficients are the same!"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                        ,<span class="st">"The coefficients differ."</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>message_2 <span class="ot">&lt;-</span><span class="fu">ifelse</span> (<span class="fu">all</span>(<span class="fu">round</span>(answer<span class="sc">$</span><span class="st">`</span><span class="at">std error</span><span class="st">`</span>,<span class="dv">4</span>) <span class="sc">==</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">round</span>(<span class="fu">summary</span>(model)<span class="sc">$</span>coefficients[, <span class="st">"Std. Error"</span>],<span class="dv">4</span>)),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The standard errors are the same!"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The tandard errors differ."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Answer if beta coefficients are correct</strong></p>
 <div class="cell">

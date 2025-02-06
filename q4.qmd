@@ -13,7 +13,6 @@ Check the same β estimates as when fitting the linear regression model using lm
 Y <-cars$dist
 
 intercept<- rep(1, length(Y))
-intercept
 
 X <- cbind(intercept,cars$speed)
 
