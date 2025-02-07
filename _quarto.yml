@@ -6,10 +6,7 @@ book:
   title: "Practical One"
   chapters:
     - index.qmd
-    - q1.qmd
-    - q2.qmd
-    - q3.qmd
-    - q4.qmd
+    - prac2.qmd
   navbar: false
 
 format:
