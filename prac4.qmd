@@ -1,106 +1,248 @@
-#################### Load packages ########################
-# Install tidyverse if not already installed
-if (!requireNamespace("tidyverse", quietly = TRUE)) {
-  install.packages("tidyverse")
+---
+title: "Practical Four"
+format: html
+---
+
+# Question 1
+
+Display the flights dataset in an alternative format to simply printing it.
+
+**Code**
+
+```{r}
+ #| echo: false  
+
+  #################### Load packages ########################
+  # Install tidyverse if not already installed
+  if (!requireNamespace("tidyverse", quietly = TRUE)) {
+    install.packages("tidyverse")
+  }
+  library(tidyverse)
+  
+  # Install and load nycflights13 for flight data
+  if (!requireNamespace("nycflights13", quietly = TRUE)) {
+    install.packages("nycflights13")
+  }
+  library(nycflights13)
+  
+  if (!requireNamespace("remotes", quietly = TRUE)) {
+    install.packages("remotes")
+  }
+  remotes::install_github("SATVILab/UtilsDataRSV")
+```
+
+**Answer**
+```{r}
+  dplyr::glimpse(flights)
+
+```
+
+# Question 2
+
+Rewrite the following code using dplyr
+
+**Original Code**
+
+```{r}
+  flight1 <- flights[flights$month == 1, ]
+carrier_vec <- unique(flight1$carrier)
+carrier_dist_vec_mean <- numeric(length(carrier_vec))
+carrier_dist_vec_sd <- numeric(length(carrier_vec))
+for (i in seq_along(carrier_vec)) {
+  carrier_dist_vec_mean[i] <- mean(
+    flight1$distance[flight1$carrier == carrier_vec[i]]
+   )
+  carrier_dist_vec_sd[i] <- sd(
+    flight1$distance[flight1$carrier == carrier_vec[i]]
+  )
 }
-library(tidyverse)
+dist_tbl <- tibble(
+  carrier = carrier_vec,
+  mean_distance = carrier_dist_vec_mean,
+  sd_distance = carrier_dist_vec_sd
+)
+dist_tbl[order(dist_tbl$mean_distance), ]
+```
 
-# Install and load nycflights13 for flight data
-if (!requireNamespace("nycflights13", quietly = TRUE)) {
-  install.packages("nycflights13")
-}
-library(nycflights13)
+**Rewritten Code**
 
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-remotes::install_github("SATVILab/UtilsDataRSV")
-
-
-
-# Question 1:
-dplyr::glimpse(flights)
-
-# Question 2:
-dist_tbl <- flights |> 
+```{r}
+  dist_tbl <- flights |> 
             filter(month == 1)|> 
             group_by(carrier)   |> 
             summarise(
                       avg_dist = mean(distance, na.rm = TRUE),
                       sd_dist = sd(distance, na.rm = TRUE))  |> 
             arrange(avg_dist)
+```
 
+**Answer**
+```{r}
+  dist_tbl
+```
 
-# Question 3:
+# Question 3
 
-# no entries found
-q_3_1 <- flights |> 
+Explain why the standard deviation is NA for one carrier, and why it is 0 for others. Demonstrate your answer using code.
+
+**Code**
+
+```{r}
+  q_3_1 <- flights |> 
          filter(carrier == "OO", month == 1, is.na(distance)) |>
          count()
+```
 
-# the carrier code have same distance  
-q_3_1 <- flights |> 
+**Answer**
+```{r}
+ q_3_1
+```
+
+There are no entries for carrier OO in month 1, therefore the standard deviation is NA
+
+**Code**
+
+```{r}
+  q_3_2 <- flights |> 
          filter(carrier == "YV", month == 1) |>
          select(distance) |>
          print(n = Inf)
-
-
-# Question 4:
-q_4 <- flights |> 
-  group_by(month, carrier) |> 
-  summarise(avg_dep_delay = mean(dep_delay, na.rm = TRUE)) |>
-  pivot_wider(  names_from = carrier, values_from = avg_dep_delay )
-
-# Question 5:
-q_5<- flights |> 
-  filter(dep_delay > 0, arr_delay <= 0) |>  
-  count() / nrow(flights)
-
-# Question 6:
-q_6_1 <- flights |>
-  left_join(airlines, by = "carrier") |>
-  group_by(origin, dest) |>
-  filter(n_distinct(name) > 1) |>
-  select(origin, dest) 
-
-q_6_2 <- flights |>
-  left_join(airlines, by = "carrier") |>
-  group_by(origin, dest, name) |>
-  summarise(avg_arr_delay = mean(arr_delay, na.rm = TRUE)) |>
-  select(origin, dest, name, avg_arr_delay)
   
-q_6_3_3 <- flights |>
-  left_join(airlines, by = "carrier") |>
-  group_by(origin, dest, name) |>
-  summarise(avg_arr_delay = mean(arr_delay, na.rm = TRUE)) |>
-  summarise(
-    best_airline = name[which.min(avg_arr_delay)],
-    worst_airline = name[which.max(avg_arr_delay)],
-    best_avg_arr_delay = min(avg_arr_delay),
-    worst_avg_arr_delay = max(avg_arr_delay),
-  )
+```
 
+**Answer**
+```{r}
+ q_3_2
+```
+All the distance values for carrier YV and others with a standard deviation of 0 have the sam distance values for all entries in month 1
 
-q_6_4 <- flights |>
-  left_join(airlines, by = "carrier") |>
-  group_by(origin, dest, name) |>
-  summarise(avg_arr_delay = mean(arr_delay, na.rm = TRUE)) |>
-  summarise(
-    best_avg_arr_delay = min(avg_arr_delay),
-    worst_avg_arr_delay = max(avg_arr_delay)
-  ) |>
-  mutate(diff = worst_avg_arr_delay - best_avg_arr_delay) |>
-  arrange(desc(diff)) |>
-  filter(diff == max(diff))
+# Question 4
+Using tidyr and dplyr where appropriate, construct a dataframe where the carriers are along the columns, and the rows are the average departure delay (dep_delay) flown by each carrier (carrier) in each month.
 
-q_6_4
+**Code**
 
+```{r}
+  q_4 <- flights |> 
+         group_by(month, carrier) |> 
+         summarise(avg_dep_delay = mean(dep_delay, na.rm = TRUE)) |>
+         pivot_wider(  names_from = carrier, values_from = avg_dep_delay )
+```
 
+**Answer**
+```{r}
+  q_4
+```
 
+# Question 5
+Calculate the proportion of flights that were delayed (dep_delay greater than 0) but arrived on or before time (arr_delay less than or equal to 0).
 
-flights
-airlines
+**Code**
 
+```{r}
+ q_5<- flights |> 
+       filter(dep_delay > 0, arr_delay <= 0) |>  
+       count() / nrow(flights)
+```
+
+**Answer**
+```{r}
+ 
+ q_5
+```
+
+# Question 6
+
+Identify routes that more than one airline flies
+
+**Code**
+
+```{r}
+ q_6_1 <- flights |>
+          left_join(airlines, by = "carrier") |>
+          group_by(origin, dest) |>
+          filter(n_distinct(name) > 1) |>
+          select(origin, dest) 
+```
+
+**Answer**
+```{r}
+  q_6_1
+```
+
+For each such route, calculate the average arrival delay for each airline (exclude NAs). Find the names of these airlines.
+
+**Code**
+
+```{r}
+  q_6_2 <- flights |>
+           left_join(airlines, by = "carrier") |>
+           group_by(origin, dest, name) |>
+           summarise(avg_arr_delay = mean(arr_delay, na.rm = TRUE)) |>
+           select(origin, dest, name, avg_arr_delay)
+```
+
+**Answer**
+```{r}
+  
+ q_6_2
+```
+
+For each such route, identify the airline with the worst and best average arrival delay.
+
+**Code**
+
+```{r}
+  q_6_3_3 <- flights |>
+             left_join(airlines, by = "carrier") |>
+             group_by(origin, dest, name) |>
+             summarise(avg_arr_delay = mean(arr_delay, na.rm = TRUE)) |>
+             summarise(
+                         best_airline = name[which.min(avg_arr_delay)],
+                         worst_airline = name[which.max(avg_arr_delay)],
+                         best_avg_arr_delay = min(avg_arr_delay),
+                         worst_avg_arr_delay = max(avg_arr_delay),
+                      )
+```
+
+**Answer**
+```{r}
+
+  q_6_3_3
+```
+
+Identify the route with the greatest difference between the best and worst performing airlines
+
+**Code**
+
+```{r}
+  q_6_4 <- flights |>
+           left_join(airlines, by = "carrier") |>
+           group_by(origin, dest, name) |>
+           summarise(avg_arr_delay = mean(arr_delay, na.rm = TRUE)) |>
+           summarise(
+                      best_avg_arr_delay = min(avg_arr_delay),
+                      worst_avg_arr_delay = max(avg_arr_delay)
+                    ) |>
+           mutate(diff = worst_avg_arr_delay - best_avg_arr_delay) |>
+           arrange(desc(diff)) |>
+           filter(diff == max(diff))
+  
+```
+**Answer**
+```{r}
+ q_6_4
+```
+
+Determine the reason for this difference
+
+**Answer**
+The route from JFK to ATL has the largest arrival delay on average
+
+# Question 7
+
+**Code**
+
+```{r}
 dataset <-structure(list(id = c("id_1", "id_2", "id_3", "id_4", "id_5", 
                       "id_6", "id_7", "id_8", "id_9", "id_10", "id_11", "id_12", "id_13", 
                       "id_14", "id_15", "id_16", "id_17", "id_18", "id_19", "id_20", 
@@ -199,5 +341,11 @@ dataset <-structure(list(id = c("id_1", "id_2", "id_3", "id_4", "id_5",
                                                                                                                                                                                                                                                   "divorced", "single", "divorced")), row.names = c(NA, -50L
                                                                                                                                                                                                                                                   ), class = c("tbl_df", "tbl", "data.frame"))
 
-
 UtilsDataRSV::view_cols(dataset)
+```
+
+**Answer**
+
+Gender has a misspelled female entry, height has a missing value, disease_status has a misspelled healthy entry, glucose has a missing value
+
+

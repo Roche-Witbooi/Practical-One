@@ -1,12 +1,13 @@
 project:
   type: book
-  output-dir: _output
+  output-dir: _site
 
 book:
   title: "Practical One"
   chapters:
     - index.qmd
     - prac2.qmd
+    - prac4.qmd
   navbar: false
 
 format:
