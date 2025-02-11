@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practical Two – Practical One</title>
+<title>Practical One – Practical One</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./prac4.html" rel="next">
-<link href="./prac1.html" rel="prev">
+<link href="./prac2.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prac2.html"><span class="chapter-title">Practical Two</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prac1.html"><span class="chapter-title">Practical One</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -147,12 +147,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prac1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Practical One</span></a>
+  <a href="./prac1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Practical One</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prac2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Practical Two</span></a>
+  <a href="./prac2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Practical Two</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -171,8 +171,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#question-1" id="toc-question-1" class="nav-link active" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a>
+  <ul class="collapse">
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean">Mean</a></li>
+  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation">Standard Deviation</a></li>
+  <li><a href="#minimum" id="toc-minimum" class="nav-link" data-scroll-target="#minimum">Minimum</a></li>
+  <li><a href="#maximum" id="toc-maximum" class="nav-link" data-scroll-target="#maximum">Maximum</a></li>
+  </ul></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a>
+  <ul class="collapse">
+  <li><a href="#calculate-beta-estimate" id="toc-calculate-beta-estimate" class="nav-link" data-scroll-target="#calculate-beta-estimate">Calculate Beta estimate</a></li>
+  </ul></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a>
+  <ul class="collapse">
+  <li><a href="#confirm-beta-estimate-by-fitting-model" id="toc-confirm-beta-estimate-by-fitting-model" class="nav-link" data-scroll-target="#confirm-beta-estimate-by-fitting-model">Confirm Beta estimate by fitting model</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -181,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Practical Two</span></h1>
+<h1 class="title"><span class="chapter-title">Practical One</span></h1>
 </div>
 
 
@@ -198,86 +211,257 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>This Quarto project (the rendered document itself, as well as the source code on GitHub).</p>
 <section id="question-1" class="level1">
 <h1>Question 1</h1>
-<p>Generate Simulated Data</p>
+<p>Find all rows in <strong>“airquality”</strong> data set that have missing values.</p>
 <p><strong>Code</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">##### Generate Simulated Data #####</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">0</span>,<span class="fl">0.2</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x<span class="sc">/</span><span class="dv">10</span>)<span class="sc">+</span> error</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>rows_missing_val <span class="ot">&lt;-</span>airquality[<span class="fu">rowSums</span>(<span class="fu">is.na</span>(airquality)) <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Answer</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    Ozone Solar.R Wind Temp Month Day
+5      NA      NA 14.3   56     5   5
+6      28      NA 14.9   66     5   6
+10     NA     194  8.6   69     5  10
+11      7      NA  6.9   74     5  11
+25     NA      66 16.6   57     5  25
+26     NA     266 14.9   58     5  26
+27     NA      NA  8.0   57     5  27
+32     NA     286  8.6   78     6   1
+33     NA     287  9.7   74     6   2
+34     NA     242 16.1   67     6   3
+35     NA     186  9.2   84     6   4
+36     NA     220  8.6   85     6   5
+37     NA     264 14.3   79     6   6
+39     NA     273  6.9   87     6   8
+42     NA     259 10.9   93     6  11
+43     NA     250  9.2   92     6  12
+45     NA     332 13.8   80     6  14
+46     NA     322 11.5   79     6  15
+52     NA     150  6.3   77     6  21
+53     NA      59  1.7   76     6  22
+54     NA      91  4.6   76     6  23
+55     NA     250  6.3   76     6  24
+56     NA     135  8.0   75     6  25
+57     NA     127  8.0   78     6  26
+58     NA      47 10.3   73     6  27
+59     NA      98 11.5   80     6  28
+60     NA      31 14.9   77     6  29
+61     NA     138  8.0   83     6  30
+65     NA     101 10.9   84     7   4
+72     NA     139  8.6   82     7  11
+75     NA     291 14.9   91     7  14
+83     NA     258  9.7   81     7  22
+84     NA     295 11.5   82     7  23
+96     78      NA  6.9   86     8   4
+97     35      NA  7.4   85     8   5
+98     66      NA  4.6   87     8   6
+102    NA     222  8.6   92     8  10
+103    NA     137 11.5   86     8  11
+107    NA      64 11.5   79     8  15
+115    NA     255 12.6   75     8  23
+119    NA     153  5.7   88     8  27
+150    NA     145 13.2   77     9  27</code></pre>
+</div>
 </div>
 </section>
 <section id="question-2" class="level1">
 <h1>Question 2</h1>
-<p>Define a function customLowess(x, y, f) that returns the smoothed values.</p>
+<p>Find mean, standard deviation, minimum, maximum for each of temperature and ozone level.</p>
+<p><strong>Data Manipulation</strong></p>
+<p>Extracts the rows in the data without missing values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>valid_rows <span class="ot">&lt;-</span>airquality[<span class="fu">rowSums</span>(<span class="fu">is.na</span>(airquality)) <span class="sc">==</span> <span class="dv">0</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="mean" class="level2">
+<h2 class="anchored" data-anchor-id="mean">Mean</h2>
 <p><strong>Code</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">##### customLowess Function #####</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>customLowess <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, f) {</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  y_ans <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(x))</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the span</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> f <span class="sc">*</span> <span class="fu">length</span>(x)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    dist <span class="ot">&lt;-</span> <span class="fu">abs</span>(x <span class="sc">-</span> x[i])</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Determine max distances point of k points</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    neighbours <span class="ot">&lt;-</span> <span class="fu">order</span>(dist)[<span class="dv">1</span><span class="sc">:</span>k]</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    max_dist <span class="ot">&lt;-</span> <span class="fu">max</span>(dist[neighbours])</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate weights</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    weights <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">-</span> (dist[neighbours] <span class="sc">/</span> max_dist)<span class="sc">^</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">3</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ifelse</span>(<span class="fu">any</span>(weights[dist[neighbours] <span class="sc">&gt;</span> max_dist]), </span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>           weights[dist[neighbours] <span class="sc">&gt;</span> max_dist] <span class="ot">&lt;-</span> <span class="dv">0</span>,weights <span class="ot">&lt;-</span> weights)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Weighted linear regression</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, x[neighbours])  </span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    W <span class="ot">&lt;-</span> <span class="fu">diag</span>(weights)  </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    Y <span class="ot">&lt;-</span> y[neighbours]  </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate Beta estimates</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    beta_hat <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> W <span class="sc">%*%</span> X) <span class="sc">%*%</span> (<span class="fu">t</span>(X) <span class="sc">%*%</span> W <span class="sc">%*%</span> Y)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    y_ans[i] <span class="ot">&lt;-</span> beta_hat[<span class="dv">1</span>] <span class="sc">+</span> beta_hat[<span class="dv">2</span>] <span class="sc">*</span> x[i]</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y_ans)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mean_temp <span class="ot">&lt;-</span> <span class="fu">mean</span>(valid_rows<span class="sc">$</span>Temp)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mean_ozone <span class="ot">&lt;-</span> <span class="fu">mean</span>(valid_rows<span class="sc">$</span>Ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><strong>Answer:</strong> Mean Temperature:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 77.79279</code></pre>
+</div>
+</div>
+<p><strong>Answer:</strong> Mean Ozone Level:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.0991</code></pre>
+</div>
+</div>
+</section>
+<section id="standard-deviation" class="level2">
+<h2 class="anchored" data-anchor-id="standard-deviation">Standard Deviation</h2>
+<p><strong>Code</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sd_temp <span class="ot">&lt;-</span> <span class="fu">sd</span>(valid_rows<span class="sc">$</span>Temp)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sd_ozone <span class="ot">&lt;-</span> <span class="fu">sd</span>(valid_rows<span class="sc">$</span>Ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Answer:</strong> Standard Deviation of Temperature:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.529969</code></pre>
+</div>
+</div>
+<p><strong>Answer:</strong> Standard Deviation of Ozone Level:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 33.27597</code></pre>
+</div>
+</div>
+</section>
+<section id="minimum" class="level2">
+<h2 class="anchored" data-anchor-id="minimum">Minimum</h2>
+<p><strong>Code</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>min_temp <span class="ot">&lt;-</span> <span class="fu">min</span>(valid_rows<span class="sc">$</span>Temp) </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>min_ozone <span class="ot">&lt;-</span> <span class="fu">min</span>(valid_rows<span class="sc">$</span>Ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Answer:</strong> Minimuim Temperature:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 57</code></pre>
+</div>
+</div>
+<p><strong>Answer:</strong> Minimuim Ozone Level:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="maximum" class="level2">
+<h2 class="anchored" data-anchor-id="maximum">Maximum</h2>
+<p><strong>Code</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>max_temp <span class="ot">&lt;-</span> <span class="fu">max</span>(valid_rows<span class="sc">$</span>Temp) </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>max_ozone <span class="ot">&lt;-</span> <span class="fu">max</span>(valid_rows<span class="sc">$</span>Ozone)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Answer:</strong> Maximuim Temperature:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 97</code></pre>
+</div>
+</div>
+<p><strong>Answer:</strong> Maximuim Ozone Level:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 168</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="question-3" class="level1">
 <h1>Question 3</h1>
-<p>Use the built-in lowess() function with the same f value. You will also need to set the iter argument to 0. Plot both curves to compare their smoothing values.</p>
+<section id="calculate-beta-estimate" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-beta-estimate">Calculate Beta estimate</h2>
+<p>Here, Y is the response variable, and X is the design matrix. The cars data (an R data set, also always available in R) contains two variables: speed and distance to stop. Fit a simple linear regression model to these data, i.e.&nbsp;find the beta estimates, using the equation above, and matrix calculations in R.</p>
 <p><strong>Code</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>calcualtion <span class="ot">&lt;-</span> <span class="fu">customLowess</span>(x, y, f)  </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lowess</span>(x, y, f, <span class="at">iter=</span><span class="dv">0</span>)<span class="sc">$</span>y  </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">##### Plot the comparison #####</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">main=</span><span class="st">"calculated Lowness compared to built-in Lowness"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, model, <span class="at">col=</span><span class="st">"blue"</span>,<span class="at">lwd =</span><span class="dv">2</span>) </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, calcualtion, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">lwd =</span><span class="dv">2</span>, <span class="at">lty=</span><span class="dv">2</span>) </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Custom Lowness"</span>, <span class="st">"Built-in Lowness"</span>), </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>), <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">lwd =</span> <span class="dv">2</span>,<span class="at">cex =</span> <span class="fl">0.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="prac2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">####### Create design matrix ####### </span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span>cars<span class="sc">$</span>dist</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>intercept<span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(Y))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(intercept,cars<span class="sc">$</span>speed)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="do">#######  Function Calculates Beta hat and Std Error ####### </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>calculate <span class="ot">&lt;-</span> <span class="cf">function</span>(X, Y){</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  beta_hat <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X)<span class="sc">%*%</span> Y</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate Std Errors</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  Sxx <span class="ot">&lt;-</span> <span class="fu">sum</span>((X[,<span class="dv">2</span>] <span class="sc">-</span> <span class="fu">mean</span>(X[,<span class="dv">2</span>]))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  Sxy <span class="ot">&lt;-</span> <span class="fu">sum</span>((X[,<span class="dv">2</span>] <span class="sc">-</span> <span class="fu">mean</span>(X[,<span class="dv">2</span>])) <span class="sc">*</span> (Y <span class="sc">-</span> <span class="fu">mean</span>(Y)))</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  predictions <span class="ot">&lt;-</span> beta_hat[<span class="dv">1</span>]<span class="sc">+</span>beta_hat[<span class="dv">2</span>]<span class="sc">*</span>X[,<span class="dv">2</span>]</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  residuals <span class="ot">&lt;-</span> Y<span class="sc">-</span>predictions</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  rse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(residuals<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="fu">length</span>(Y)<span class="sc">-</span><span class="dv">2</span>))</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  se_intercept<span class="ot">&lt;-</span> rse<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span><span class="fu">length</span>(Y)<span class="sc">+</span><span class="fu">mean</span>(X[,<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>Sxx)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  se_speed <span class="ot">&lt;-</span> rse<span class="sc">/</span> <span class="fu">sqrt</span>( Sxx)</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Display Std Errors</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>  std_error <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">1</span>) </span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>  std_error[<span class="dv">1</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> se_intercept</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>  std_error[<span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> se_speed</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>( <span class="fu">list</span>(<span class="st">"coefficients"</span> <span class="ot">=</span> <span class="fu">c</span>(beta_hat[<span class="dv">1</span>], beta_hat[<span class="dv">2</span>]), </span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>               <span class="st">"std error"</span> <span class="ot">=</span> <span class="fu">c</span>(se_intercept, se_speed)))</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="do">#######  Results ####### </span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>answer <span class="ot">&lt;-</span><span class="fu">calculate</span>(X,Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><strong>Answer Beta estimate</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -17.579095   3.932409</code></pre>
+</div>
+</div>
+<p><strong>Answer Standard Error</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.7584402 0.4155128</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="question-4" class="level1">
+<h1>Question 4</h1>
+<section id="confirm-beta-estimate-by-fitting-model" class="level2">
+<h2 class="anchored" data-anchor-id="confirm-beta-estimate-by-fitting-model">Confirm Beta estimate by fitting model</h2>
+<p>Check the same β estimates as when fitting the linear regression model using lm() in R.</p>
+<p><strong>Code</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">####### Calculate Beat values and Standard Error ####### </span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>answer <span class="ot">&lt;-</span> <span class="fu">calculate</span>(X, Y)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="do">####### Fit Model ####### </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print coefficients</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(answer<span class="sc">$</span>coefficients)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -17.579095   3.932409</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model<span class="sc">$</span>coefficients) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)       speed 
+ -17.579095    3.932409 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Corrected comparison</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>message_1 <span class="ot">&lt;-</span><span class="fu">ifelse</span> (<span class="fu">all</span>(<span class="fu">round</span>(answer<span class="sc">$</span>coefficients,<span class="dv">4</span>) <span class="sc">==</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">round</span>(model<span class="sc">$</span>coefficients,<span class="dv">4</span>)),</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The coefficients are the same!"</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                        ,<span class="st">"The coefficients differ."</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>message_2 <span class="ot">&lt;-</span><span class="fu">ifelse</span> (<span class="fu">all</span>(<span class="fu">round</span>(answer<span class="sc">$</span><span class="st">`</span><span class="at">std error</span><span class="st">`</span>,<span class="dv">4</span>) <span class="sc">==</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">round</span>(<span class="fu">summary</span>(model)<span class="sc">$</span>coefficients[, <span class="st">"Std. Error"</span>],<span class="dv">4</span>)),</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The standard errors are the same!"</span>,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"The tandard errors differ."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Answer if beta coefficients are correct</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The coefficients are the same!"</code></pre>
+</div>
+</div>
+<p><strong>Answer if standard errors are correct</strong></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The standard errors are the same!"</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -703,13 +887,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./prac1.html" class="pagination-link" aria-label="Practical One">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Practical One</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Assignment One">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Assignment One</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./prac4.html" class="pagination-link" aria-label="Practical Four">
-        <span class="nav-page-text"><span class="chapter-title">Practical Four</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./prac2.html" class="pagination-link" aria-label="Practical Two">
+        <span class="nav-page-text"><span class="chapter-title">Practical Two</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
